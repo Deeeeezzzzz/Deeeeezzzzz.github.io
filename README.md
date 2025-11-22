@@ -1,2 +1,2 @@
-# Deeeeezzzzz.github.io
 >:p
+yea jus some silly things
