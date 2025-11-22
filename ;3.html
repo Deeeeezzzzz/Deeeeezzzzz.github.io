@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>WhimsiFactory — Silly Whimsical Site</title>
+    <style>
+        :root{
+            --bg1:#ffefff; --bg2:#e0f7ff; --accent:#ff6bcb;
+            --glass: rgba(255,255,255,0.6);
+        }
+        html,body{height:100%;margin:0;font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;background:linear-gradient(120deg,var(--bg1),var(--bg2));overflow:hidden;color:#222}
+        .sky{
+            position:fixed;inset:0;pointer-events:none;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(255,255,255,0.6), transparent 6%),
+                radial-gradient(circle at 80% 30%, rgba(255,255,255,0.35), transparent 6%),
+                linear-gradient(180deg, rgba(255,255,255,0.05), transparent 30%);
+            mix-blend-mode:overlay;
+            animation: drift 12s linear infinite;
+        }
+        @keyframes drift{0%{transform:translateY(0)}50%{transform:translateY(12px)}100%{transform:translateY(0)}}
+        .page{
+            position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;
+            text-align:center;padding:3rem;gap:1.25rem;
+        }
+        h1{
+            margin:0;font-size:clamp(2rem,5vw,4rem);line-height:1;
+            background:conic-gradient(from 120deg at 50% 50%, #ffd8e8, #ffd68a, #c7ffd6, #c8ddff, #ffd8e8);
+            -webkit-background-clip:text;background-clip:text;color:transparent;
+            filter:drop-shadow(0 6px 10px rgba(0,0,0,0.08));
+            transform:skewY(-2deg);
+        }
+        p.lead{margin:0;font-size:1.05rem;color:#334;opacity:0.9}
+        .controls{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center}
+        .btn{
+            border:0;padding:0.6rem 1rem;border-radius:999px;background:var(--glass);backdrop-filter:blur(6px);
+            cursor:pointer;font-weight:600;color:#2b2b2b;box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:transform .18s ease;
+        }
+        .btn:active{transform:translateY(2px) scale(.99)}
+        .playground{
+            position:relative;width:min(1100px,92vw);height:min(560px,58vh);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.35));
+            box-shadow:0 8px 40px rgba(60,40,80,0.08);overflow:hidden;padding:12px;display:flex;align-items:flex-end;justify-content:space-around;
+            gap:12px;
+        }
+        .ground{position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(90deg,#ffe7f7,#e6f9ff);box-shadow:inset 0 6px 26px rgba(0,0,0,0.03);border-top-left-radius:20px;border-top-right-radius:20px}
+        .character{
+            font-size:6rem;transform-origin:center;user-select:none;pointer-events:none;
+            filter:drop-shadow(0 12px 20px rgba(0,0,0,0.12));
+        }
+        /* balloons */
+        .balloon{
+            position:absolute;bottom:70px;width:64px;height:84px;border-radius:50% 50% 47% 47%/60% 60% 40% 40%;
+            display:flex;align-items:center;justify-content:center;font-size:36px;color:white;
+            box-shadow:0 8px 18px rgba(0,0,0,0.12);cursor:pointer;user-select:none;
+        }
+        .string{
+            position:absolute;left:50%;transform:translateX(-50%);bottom:-40px;width:2px;height:64px;background:linear-gradient(180deg,#b0b0b0,#7a7a7a);border-radius:2px;
+        }
+        /* bubbles */
+        .bubble{position:absolute;bottom:80px;border-radius:999px;padding:6px 10px;background:rgba(255,255,255,0.9);font-size:18px;color:#222;border:2px solid rgba(255,255,255,0.7);box-shadow:0 8px 18px rgba(0,0,0,0.06)}
+        /* tiny fairy dust */
+        .dust{position:absolute;width:8px;height:8px;border-radius:50%;background:gold;box-shadow:0 0 10px gold;opacity:.95;pointer-events:none}
+        /* footer note */
+        footer{position:fixed;left:12px;bottom:12px;font-size:.85rem;color:#222;opacity:.7}
+        canvas{position:absolute;inset:0;pointer-events:none;z-index:3}
+        /* tasty little wiggle on hover for balloons */
+        .balloon:hover{transform:translateY(-4px) rotate(-4deg) scale(1.03)}
+        /* responsive */
+        @media (max-width:520px){.character{font-size:4.2rem}.playground{height:56vh}}
+    </style>
+</head>
+<body>
+    <div class="sky"></div>
+    <div class="page" id="page">
+        <h1 id="title">WhimsiFactory!</h1>
+        <p class="lead">A tiny silly place where balloons giggle, bubbles float, and confetti applauds.</p>
+
+        <div class="controls" aria-hidden="false">
+            <button class="btn" id="btnBalloon">Summon a Balloon</button>
+            <button class="btn" id="btnBubble">Make a Bubble</button>
+            <button class="btn" id="btnConfetti">Make Confetti</button>
+            <button class="btn" id="btnSpin">Spin Me (character)</button>
+        </div>
+
+        <div class="playground" id="playground" role="region" aria-label="playground">
+            <div class="ground"></div>
+            <div class="character" id="character">😺</div>
+            <!-- dynamic elements go here -->
+        </div>
+
+    </div>
+
+    <canvas id="confetti"></canvas>
+    <footer>Tip: click balloons to pop them. Move your mouse to tease the character.</footer>
+
+    <script>
+        // small whimsical engine
+        const playground = document.getElementById('playground');
+        const char = document.getElementById('character');
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        canvas.width = innerWidth; canvas.height = innerHeight;
+
+        // audio context for pops and twinkles
+        const AC = typeof AudioContext !== 'undefined' ? new AudioContext() : null;
+        function clickBlip(freq=800, type='sine', dur=0.08){
+            if(!AC) return;
+            const o = AC.createOscillator(), g = AC.createGain();
+            o.type = type; o.frequency.setValueAtTime(freq, AC.currentTime);
+            g.gain.setValueAtTime(0.0001, AC.currentTime);
+            g.gain.exponentialRampToValueAtTime(0.08, AC.currentTime+0.01);
+            g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime+dur);
+            o.connect(g); g.connect(AC.destination);
+            o.start(); o.stop(AC.currentTime+dur+0.02);
+        }
+
+        // character follows mouse slightly
+        document.addEventListener('mousemove', e=>{
+            const rect = playground.getBoundingClientRect();
+            const cx = rect.left + rect.width/2;
+            const cy = rect.top + rect.height/2;
+            const dx = (e.clientX - cx)/rect.width;
+            const dy = (e.clientY - cy)/rect.height;
+            char.style.transform = `translate(${dx*20}px,${dy*6}px) rotate(${dx*6}deg)`;
+        });
+
+        // balloon generator
+        let balloonCount=0;
+        function makeBalloon(){
+            balloonCount++;
+            const b = document.createElement('div');
+            b.className='balloon';
+            const hue = Math.floor(Math.random()*360);
+            b.style.background = `linear-gradient(180deg,hsl(${hue} 80% 65%), hsl(${hue} 80% 50%))`;
+            const left = 12 + Math.random()*(playground.clientWidth-120);
+            b.style.left = left + 'px';
+            b.dataset.id = balloonCount;
+            b.innerHTML = '🎈';
+            b.style.fontSize = '28px';
+            const s = document.createElement('div'); s.className='string';
+            b.appendChild(s);
+            playground.appendChild(b);
+
+            // float animation using requestAnimationFrame
+            let y = 0;
+            const speed = 0.3 + Math.random()*0.6;
+            const sway = 20 + Math.random()*40;
+            const start = performance.now();
+            b._anim = function(now){
+                const t = (now - start)/1000;
+                y = t * speed * 40;
+                b.style.transform = `translateY(${-y}px) translateX(${Math.sin(t*1.1+Math.random())*sway}px)`;
+                if(-y + 70 < -playground.clientHeight){ // off top
+                    b.remove(); return;
+                }
+                b._raf = requestAnimationFrame(b._anim);
+            };
+            b._raf = requestAnimationFrame(b._anim);
+
+            // pop on click
+            b.addEventListener('click', (ev)=>{
+                ev.stopPropagation();
+                popBalloon(b, ev.clientX, ev.clientY);
+            });
+        }
+
+        function popBalloon(el, x=innerWidth/2, y=innerHeight/2){
+            if(!el) return;
+            // confetti burst
+            spawnConfetti(x || innerWidth/2, y || innerHeight/2, 24);
+            clickBlip(1200, 'square', 0.09);
+            // pop sparkle dust
+            for(let i=0;i<10;i++){
+                const d = document.createElement('div');
+                d.className='dust';
+                d.style.left = (el.getBoundingClientRect().left + el.clientWidth/2) + 'px';
+                d.style.top = (el.getBoundingClientRect().top + 20) + 'px';
+                document.body.appendChild(d);
+                const vx = (Math.random()-0.5)*6, vy = -Math.random()*6 - 1;
+                let life=0;
+                const id = setInterval(()=>{ life+=1;
+                    d.style.transform = `translate(${vx*life}px,${vy*life + 0.5*9.8*life*life/100}px)`;
+                    d.style.opacity = 1 - life/24;
+                    if(life>24){clearInterval(id); d.remove();}
+                },16);
+            }
+            cancelAnimationFrame(el._raf);
+            el.remove();
+        }
+
+        // bubble
+        function makeBubble(){
+            const bubble = document.createElement('div');
+            bubble.className='bubble';
+            bubble.textContent = ['blip','floof','sploing','pop','whee'][Math.floor(Math.random()*5)];
+            const left = 8 + Math.random()*(playground.clientWidth-120);
+            bubble.style.left = left + 'px';
+            bubble.style.bottom = '90px';
+            playground.appendChild(bubble);
+            clickBlip(950 + Math.random()*300, 'sine', 0.12);
+            let life=0;
+            const id = setInterval(()=>{
+                life+=1;
+                bubble.style.transform = `translateY(${-life*1.8}px) rotate(${life*2}deg)`;
+                bubble.style.opacity = 1 - life/60;
+                if(life>60){clearInterval(id); bubble.remove();}
+            },16);
+            bubble.addEventListener('click',(e)=>{ e.stopPropagation(); popBubble(bubble, e.clientX, e.clientY); });
+        }
+        function popBubble(b, x, y){
+            clickBlip(1600, 'sine', 0.05);
+            spawnConfetti(x,y,8);
+            b.remove();
+        }
+
+        // simple confetti engine on canvas
+        let particles = [];
+        function spawnConfetti(x, y, count=40){
+            const colors = ['#ff6bcb','#ffd86b','#6be6ff','#b6ffb0','#d2b6ff','#ffb6d6'];
+            for(let i=0;i<count;i++){
+                particles.push({
+                    x, y,
+                    vx:(Math.random()-0.5)*10,
+                    vy:(Math.random()-1.5)*10,
+                    r: 6 + Math.random()*6,
+                    color: colors[Math.floor(Math.random()*colors.length)],
+                    rot: Math.random()*360,
+                    vr: (Math.random()-0.5)*10,
+                    life: 0, ttl: 80 + Math.random()*60
+                });
+            }
+            if(!running) loop();
+        }
+        function resize(){ canvas.width = innerWidth; canvas.height = innerHeight; }
+        addEventListener('resize', resize);
+
+        let running = false;
+        function loop(){
+            running = true;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            for(let i=particles.length-1;i>=0;i--){
+                const p = particles[i];
+                p.vy += 0.35; p.x += p.vx; p.y += p.vy;
+                p.rot += p.vr;
+                p.life++;
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rot*Math.PI/180);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.r/2, -p.r/2, p.r, p.r*0.6);
+                ctx.restore();
+                if(p.life>p.ttl || p.y > canvas.height+30){
+                    particles.splice(i,1);
+                }
+            }
+            if(particles.length>0) requestAnimationFrame(loop);
+            else running = false;
+        }
+
+        // UI bindings
+        document.getElementById('btnBalloon').addEventListener('click', ()=>{
+            makeBalloon();
+            clickBlip(700 + Math.random()*200, 'triangle', 0.08);
+        });
+        document.getElementById('btnBubble').addEventListener('click', ()=>{
+            makeBubble();
+        });
+        document.getElementById('btnConfetti').addEventListener('click', (e)=>{
+            spawnConfetti(innerWidth/2, innerHeight/2, 120);
+            clickBlip(420, 'sawtooth', 0.15);
+        });
+
+        // spin the character
+        document.getElementById('btnSpin').addEventListener('click', ()=>{
+            char.animate([{transform:char.style.transform},{transform:char.style.transform + ' rotate(360deg)'}],{duration:800,iterations:1,easing:'cubic-bezier(.2,.8,.2,1)'});
+            clickBlip(1200, 'sine', 0.12);
+        });
+
+        // click outside pops nearest balloon
+        playground.addEventListener('click', (e)=>{
+            // small ripple
+            spawnConfetti(e.clientX, e.clientY, 8);
+            // pop nearest balloon if close
+            const balloons = Array.from(playground.querySelectorAll('.balloon'));
+            if(balloons.length){
+                let nearest = null, nd = Infinity;
+                balloons.forEach(b=>{
+                    const r = b.getBoundingClientRect();
+                    const bx = r.left + r.width/2, by = r.top + r.height/2;
+                    const d = Math.hypot(bx - e.clientX, by - e.clientY);
+                    if(d < nd){ nd = d; nearest = b; }
+                });
+                if(nearest && nd < 140) popBalloon(nearest, e.clientX, e.clientY);
+            }
+        });
+
+        // playful breathing title
+        setInterval(()=>{
+            const t = document.getElementById('title');
+            t.style.transform = `skewY(${(Math.random()*4-2).toFixed(2)}deg) scale(${1 + (Math.random()*0.02)})`;
+        }, 2000);
+
+        // initial toys
+        for(let i=0;i<3;i++) makeBalloon();
+        for(let i=0;i<2;i++) makeBubble();
+
+        // small accessibility: keyboard shortcuts
+        window.addEventListener('keydown', (e)=>{
+            if(e.key === 'b') makeBalloon();
+            if(e.key === 'c') spawnConfetti(innerWidth/2, innerHeight/3, 80);
+            if(e.key === ' ') { makeBubble(); e.preventDefault(); }
+        });
+    </script>
+</body>
+</html>
