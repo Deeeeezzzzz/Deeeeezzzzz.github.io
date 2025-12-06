@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>something something</title>
+</head>
+<body style="text-align: center;">
+    <h1>CLICK CLICK CLICK</h1>
+    <h2>FAST FAST FAST</h2>
+    <p id="c"></p>
+    <h2 id="p" style="color: red;"></h2>
+    <h1 id="h1"></h1>
+</body>
+<script>
+    let n=0
+    let m=0
+    const h1 = document.getElementById("h1")
+    function gozei(){
+        m++
+        document.getElementById("c").textContent=m
+    }
+    document.addEventListener("click", gozei)
+
+    let timer= setInterval(function(){
+        n++
+        document.getElementById("p").textContent=n
+        if(n==10){
+            document.removeEventListener("click", gozei)
+            clearInterval(timer)
+            if(m<10){
+                h1.textContent="didn't even try >:("
+            }
+            else if(m<30){
+                h1.textContent="try harder >:/"
+            }
+            else if(m<50){
+                h1.textContent="you can do better :/"
+            }
+            else if(m==67){
+                h1.textContent="you're SO funny '-'"
+            }
+            else if(m<70){
+                h1.textContent="good job quickie ;D"
+            }
+            else if(m<100){
+                h1.textContent="we get it you're fast chill out :L"
+            }
+            else if(m>100){
+                h1.textContent="OK STOP YOU'RE TOO FAST <:O"
+            }
+        }
+    }, 1000);
+</script>
+</html>
