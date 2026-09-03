@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho de Matemática!</title>
+    <style>
+        #div1{
+            background-color: #ededed;
+            border-radius: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            width: auto;
+        }
+
+        p{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<audio id="acerto" src="fanfare.mp3"></audio>
+<audio id="erro" src="bass.mp3"></audio>
+<body style="background-color: #515151; text-align: center;">
+    <div id="div1">
+        <h1 style="font-size: 50px;"><i>Trabalho de Matemática</i></h1>
+        <p style="font-size: 15px;">Feito por: Safira, Pedro, Kevillin e André</p>
+        <hr id="listaConteudos">
+        <br>
+        <h1>Lista de conteúdos:</h1>
+        <a href="#primeiro grau">Equação de 1° grau</a> <br>
+        <a href="#segundo grau">Equação de 2° grau</a> <br>
+        <a href="#sistema de equacao">Sistema de equações do 2° grau</a> <br>
+        <a href="#fracao">Fração</a> <br>
+        <a href="#porcentagem">Porcentagem</a> <br>
+        <a href="#probabilidade">Probabilidade</a> <br>
+        <p style="color: #ededed;">estou escondido</p>
+        <hr id="primeiro grau">
+        <div style="background-color: white; border-radius: 20px;">
+        <br>
+        <h3 style="font-size: 30px;">Equação de 1° grau</h3>
+        <br>
+        <p>Uma equação de 1° grau estabelece uma relação de igualdade entre termos conhecidos e desconhecidos <i>(também chamados de incógnitas!)</i></p>
+        <p>Esses termos são representados sob a forma:</p>
+        <br>
+        <p><b><i>ax + b = 0</i></b></p>
+        <br>
+        <p>Onde <b><i>a</i></b> e <b><i>b</i></b> são números reais diferentes de zero <i>(a ≠ 0)</i>
+            e <b><i>x</i></b> representando a incógnita.</p>
+        <p><span style="text-decoration: underline;">Exemplos</span> de equação de 1° grau:</p>
+        <br>
+        <p><b><i>5.x = 10</i></b> /// <b><i>2x + 6 = 0</i></b> /// <b><i>12 = 9a + b</i></b> </p>
+        <br>
+        <h2>Como resolver?</h2>
+        <p>Primeiramente é preciso isolar as incógnitas, colocando os termos desconhecidos de um lado da igualdade e os termos conhecidos do outro.</p>
+        <p>Mas saiba que ao trocar os elementos de lugar a igualdade ainda precisa ser verdadeira, invertendo então o sinal do elemento.</p>
+        <p>Segue o exemplo: <b>8x - 3 = 5</b> → <b>8x = 5 + 3</b> → <b>8x = 8</b></p>
+        <p>Então agora passamos o <b><i>8</i></b> que está multiplicando o <b><i>x</i></b>, se tornando uma divisão:</p>
+        <p><b>x = 8/8</b> → <b>x = 1</b></p>
+        <p>Conclui-se que a incógnita <b><i>x</i></b> é igual a <b><i>1</i></b>.</p>
+        <br>
+        <h2>Mas e se for negativo?</h2>
+        <p>Se a parte variável ou a incógnita forem negativos, multiplicamos todos os valores por <b><i>-1</i></b>, invertendo os sinais, por exemplo:</p>
+        <p><b><i>-9x = -90</i></b> → (multiplique todos por -1) → <b><i>9x = 90</i></b></p>
+        <br>
+        <h2><i>--Exercícios para praticar!--</i></h2>
+        <p>Dificuldade <span style="color: green;">fácil</span></p>
+        <p><span style="text-decoration: underline;">Exercício 1</span>: x + 7 = 12</p>
+        <input id="Q1" type="number" style="width: 50px;"><button id="B1">Responder</button>
+        <p id="R1"></p>
+        <br>
+        <p><span style="text-decoration: underline;">Exercício 2</span>: 5x - 4 = 11</p>
+        <input id="Q2" type="number" style="width: 50px;"><button id="B2">Responder</button>
+        <p id="R2"></p>
+        <br>
+        <p>Dificuldade <span style="color: orange;">média</span></p>
+        <p><span style="text-decoration: underline;">Exercício 3</span>: 2x + 5 = 3x - 4</p>
+        <input id="Q3" type="number" style="width: 50px;"><button id="B3">Responder</button>
+        <p id="R3"></p>
+        <br>
+        <p><span style="text-decoration: underline;">Exercício 4</span>:</p>
+        <p>Ana nasceu 8 anos depois de sua irmã Natália. Em determinado momento da vida, Natália possuía o triplo da idade de Ana. Calcule a idade de Ana.</p>
+        <input id="Q4" type="number" style="width: 50px;"><button id="B4">Responder</button>
+        <p id="R4"></p>
+        <br>
+        <p>Dificuldade <span style="color: red;">difícil</span></p>
+        <p><span style="text-decoration: underline;">Exercício 5</span>: 2(x + 4) = 3(x - 1)</p>
+        <input id="Q5" type="number" style="width: 50px;"><button id="B5">Responder</button>
+        <p id="R5"></p>
+        <br>
+        </div>
+        <hr id="segundo grau">
+        <div style="background-color: white; border-radius: 20px;">
+        <br>
+        <a href="#listaConteudos">Voltar a lista de conteúdos</a>
+        <h3 style="font-size: 30px;">Equação de 2° grau</h3>
+        <br>
+        <p>Em uma equação do 2° grau o <b><i>x</i></b> representa uma incógnita e as letras <b><i>a</i></b>, <b><i>b</i></b> e <b><i>c</i></b> são chamadas de coeficientes da equação.</p>
+        <p>É representada por:</p>
+        <br>
+        <p><b><i>ax² + bx + c = 0</i></b></p>
+        <br>
+        <p>Os coeficientes são números reais, com <b><i>a</i></b> sendo diferente de zero <i>(senão seria uma equação de 1° grau)</i></p>
+        <p>Para resolver uma equação do 2° grau é preciso achar os valores reais de <b><i>x</i></b>, esses valores são chamados de <b>raízes da questão</b></p>
+        <p>Tendo no máximo 2 raízes reais.</p>
+        <br>
+        <h2 style="text-decoration: underline;">Equação do 2° grau completa</h2>
+        <p>Uma equação do 2° grau completa é aquela que apresenta todos os coeficientes sendo diferentes de 0 (<b><i>a</i></b>, <b><i>b</i></b>, <b><i>c</i></b> ≠ 0).</p>
+        <p><span style="text-decoration: underline;">Exemplo</span>: <b>5x² + 2x + 2 = 0</b></p>
+        <br>
+        <h2 style="text-decoration: underline;">Equação do 2° grau incompleta</h2>
+        <p>Uma equação do 2° grau é incompleta quando os coeficientes <b><i>b</i></b> e/ou <b><i>c</i></b> são iguais a 0 (<b><i>b</i></b>, <b><i>c</i></b> = 0)</p>
+        <p><span style="text-decoration: underline;">Exemplos</span>: <b>3x² + x = 0</b> /// <b>9x² = 0</b> /// <b>4x² + 8 = 0</b></p>
+        <br>
+        <h2>Como resolver?</h2>
+        <h2 style="text-decoration: underline;">Equação do 2° grau completa</h2>
+        <p>Quando a equação é completa, nós usamos a fórmula de Bhaskara para achar as raízes da equação e é representada da seguinte maneira:</p>
+        <div class="container"><img src="2° grau/bhaskara.png" alt="Uma imagem da fórmula de bhaskara era pra aparecer aqui... Não se preucupe! Aqui vai: x = -b ± √Δ / 2.a"></div>
+        <p>Para determinarmos o delta (Δ) nós usamos:</p>
+        <img src="2° grau/delta.png" alt="A imagem não apareceu? Bem, aqui está: Δ = b² - 4.a.c">
+        <p>Agora como resolvemos? É simples:</p>
+        <p><span style="text-decoration: underline;">1. Identificar os coeficientes</span>: <b><i>a</i></b> está sempre ao lado de <b><i>x²</i></b>, <b><i>b</i></b> está sempre ao lado de <b><i>x</i></b> e <b><i>c</i></b> está sempre <b>sozinho</b>.</p>
+        <p><i>obs: se não houver nada ao lado de <b><i>x²</i></b>, então isso significa que <b><i>a</i></b> é igual a 1!</i></p>
+        <p><span style="text-decoration: underline;">2. Calcular o delta</span>: Substitua os coeficientes pelos números que você achar e ache o resultado. Se o valor de delta for maior que 0, então a equação terá duas raízes reais e distintas. Se for menor, então a equação não terá raízes. Se for igual, então a equação terá uma raíz.</p>
+        <p><span style="text-decoration: underline;">3. Calcular as raízes</span>: Substitua os coeficientes na fórmula de bhaskara e o delta para os valores que você encontrou.</p>
+        <p>(caso delta seja menor que 0 então a equação já acabou e não é mais preciso seguir essas instruções)</p>
+        <br>
+        <h2>Exemplo</h2>
+        <p><b>2x² - 3x - 5 = 0</b></p>
+        <p><span style="text-decoration: underline;">1. Identifique</span>: <b><i>a</i></b> = 2. <b><i>b</i></b> = -3. <b><i>c</i></b> = -5.</p>
+        <p><span style="text-decoration: underline;">2. Calcular o delta</span>: <b>(-3)² - 4 . (2) . (-5)</b> → <b>9 + 40</b> → <b>49</b></p>
+        <p>O valor de delta é maior que 0! Então teremos duas raízes!</p>
+        <p><span style="text-decoration: underline;">3. Calcular as raízes</span>: Primeiro nós iremos usar a soma:</p>
+        <img src="2° grau/x'.png" alt="Desculpa mas dessa vez eu não vou escrever tudo que está na imagem que deveria aparecer aqui">
+        <p>O valor da primeira raíz é 5/2!</p>
+        <p>Agora usaremos a subtração:</p>
+        <img src="2° grau/x''.png" alt="Desculpa mas dessa vez eu não vou escrever tudo que está na imagem que deveria aparecer aqui">
+        <p>O valor da segunda raíz é -1!</p>
+        <br>
+        <h2 style="text-decoration: underline;">Equação do 2° grau incompleta</h2>
+        <p>Para equações do 2° grau incompletas, nós podemos resolver isolando as incógnitas.</p>
+        <br>
+        <h2>Exemplo</h2>
+        <p><b>4x² - 16 = 0</b></p>
+        <img src="2° grau/2° grau incompleta.png" alt="Tem muito calculo na imagem para descrever aqui, desculpa :(">
+        <p>Entenda que existem 2 respostas para a raiz quadrada de 4 (2 e -2)</p>
+        <p>Então colocamos o sinal de ± para indicar que as raízes da equação é 2 e -2</p>
+        <br>
+        <h2><i>--Exercícios para praticar!--</i></h2>
+        <p>Dificuldade <span style="color: green;">fácil</span></p>
+        <p><span style="text-decoration: underline;">Exercício 1</span>: x² - 5x + 6 = 0</p>
+        <input id="Q6" type="number" placeholder="x¹" style="width: 50px;">
+        <input id="Q6.2" type="number" placeholder="x²" style="width: 50px;">
+        <button id="B6">Responder</button>
+        <p id="R6"></p>
+        <br>
+        <p><span style="text-decoration: underline;">Exercício 2</span>: x² - 9 = 0</p>
+        <input id="Q7" type="number" placeholder="x" style="width: 50px;">
+        <button id="B7">Responder</button>
+        <p id="R7"></p>
+        <br>
+        <p>Dificuldade <span style="color: orange;">média</span></p>
+        <p><span style="text-decoration: underline;">Exercício 3</span>: x² + 4x - 12 = 0</p>
+        <input id="Q8" type="number" placeholder="x¹" style="width: 50px;">
+        <input id="Q8.2" type="number" placeholder="x²" style="width: 50px;">
+        <button id="B8">Responder</button>
+        <p id="R8"></p>
+        <br>
+        <p><span style="text-decoration: underline;">Exercício 4</span>: 2x² - 8x + 6 = 0</p>
+        <input id="Q9" type="number" placeholder="x¹" style="width: 50px;">
+        <input id="Q9.2" type="number" placeholder="x²" style="width: 50px;">
+        <button id="B9">Responder</button>
+        <p id="R9"></p>
+        <br>
+        <p>Dificuldade <span style="color: red;">difícil</span></p>
+        <p><span style="text-decoration: underline;">Exercício 5</span>:</p>
+        <p>Encontre o valor do x para que a área do retângulo abaixo seja igual a 2.</p>
+        <img src="2° grau/exercicio 5 equacao 2° grau.webp" alt="Um retângulo de base (x-2) e altura (x-1)"> <br>
+        <input id="Q10" type="number" placeholder="x" style="width: 50px;">
+        <button id="B10">Responder</button>
+        <p id="R10"></p>
+        <br>
+        </div>
+        <hr id="sistema de equacao">
+        <div style="background-color: white; border-radius: 20px;">
+            <br>
+            <a href="#listaConteudos">Voltar a lista de conteúdos</a>
+            <h3 style="font-size: 30px;">Sistema de equações do 2° grau</h3>
+            <br>
+            <p>Um sistema de equação do 2° grau é usado quando queremos encontrar o valor de 2 incógnitas diferentes para satisfazer duas equações diferentes.</p>
+            <p>As equações que possam ter nesse sistema podem ser tanto de 1° como de 2° grau.</p>
+            <br>
+            <h2>Exemplo</h2>
+            <p>3x² - y = 5</p>
+            <p>y - 6x = 4</p>
+            <br>
+            <h2>Como resolver?</h2>
+            <h2>Método da adição!</h2>
+            <p>Para resolver o problema acima, podemos usar o método da adição e somar os termos semelhantes da 1° com os da 2° equação.</p>
+            <p>Reduzindo o sistema para uma só equação!</p>
+            <img src="sistema de quacao/metodo de adicao.png" alt="Volte outra hora! A imagem não carregou :(">
+            <br>
+            <p>Nós ainda podemos simplificar os termos da equação que conseguimos por 3 para facilitar ainda mais!</p>
+            <p>Dando em: x² - 2x - 3 = 0</p>
+            <br>
+            <p>Após fazer o calculo da equação de 2° grau, obtemos:</p>
+            <p>x¹ = 3 e x² = -1</p>
+            <br>
+            <p>Achamos os valores de <b><i>x</i></b>! Mas ainda é preciso achar o valor de <b><i>y</i></b>.</p>
+            <p>Então basta escolher qualquer uma das equações que estava no sistema de equação e substituir o <b><i>x</i></b> pelos valores que encontramos:</p>
+            <p>y¹ - 6x = 4 → y¹ - 6 . 3 = 4 → y¹ = 4 + 18 → y¹ = 22</p>
+            <p>O valor de <b><i>y</i></b>¹ é 22!</p>
+            <br>
+            <p>y² - 6 . (-1) = 4 → y² + 6 = 4 → y² = -2</p>
+            <p>O valor de <b><i>y</i></b>² é -2!</p>
+            <br>
+            <p>Agora sabemos que os valores que satisfazem ambas as equações são <b>(32, 22)</b> e <b>(-1, -2)</b>.</p>
+            <br>
+            <h2><i>--Exercícios para praticar!--</i></h2>
+            <p>Dificuldade <span style="color: green;">fácil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 1</span>:</p>
+            <p>y = x + 2</p>
+            <p>y = x² - 4</p>
+            <input placeholder="x,y" id="Q11" type="text" style="width: 50px;"><button id="B11">Responder</button>
+            <p id="R11"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 2</span>:</p>
+            <p>y = 2x</p>
+            <p>y = x² - 3</p>
+            <input placeholder="x,y" id="Q12" type="text" style="width: 50px;"><button id="B12">Responder</button>
+            <p id="R12"></p>
+            <br>
+            <p>Dificuldade <span style="color: orange;">média</span></p>
+            <p><span style="text-decoration: underline;">Exercício 3</span>:</p>
+            <p>y = x + 3</p>
+            <p>y = x² - 2x - 3</p>
+            <input placeholder="x,y" id="Q13" type="text" style="width: 50px;"><button id="B13">Responder</button>
+            <p id="R13"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 4</span>:</p>
+            <p>y = 2x - 1</p>
+            <p>y = x² - 4</p>
+            <input placeholder="x,y" id="Q14" type="text" style="width: 50px;"><button id="B14">Responder</button>
+            <p id="R14"></p>
+            <br>
+            <p>Dificuldade <span style="color: red;">difícil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 5</span>:</p>
+            <p>y = x² - 4x + 3</p>
+            <p>y = 2x - 1</p>
+            <input placeholder="x,y" id="Q15" type="text" style="width: 50px;"><button id="B15">Responder</button>
+            <p id="R15"></p>
+            <br>
+        </div>
+        <hr id="fracao">
+        <div style="background-color: white; border-radius: 20px;">
+            <br>
+            <a href="#listaConteudos">Voltar a lista de conteúdos</a>
+            <h3 style="font-size: 30px;">Fração</h3>
+            <br>
+            <p>Uma fração corresponde a uma representação das partes de um todo.</p>
+            <p>Ela determina a divisão de partes iguais sendo que cada parte é uma fração do inteiro.</p>
+            <p>Nas frações, o termo superior é chamado de numerador enquanto o termo inferior é chamado de denominador:</p>
+            <img src="fracao/fracao.webp" alt="Uma fração, com o número de cima chamado de "numerador" e o de baixo "denominador">
+            <br><br>
+            <h2>Tipos de frações</h2>
+            <br>
+            <p><b>--Fração própria--</b></p>
+            <p>São frações em que o numerador é menor que o denominador, ou seja, representa um número menor que um inteiro</p>
+            <p>Ex: 2/7</p>
+            <br>
+            <p><b>--Fração imprópria--</b></p>
+            <p>São frações em que o numerador é maior, ou seja, representa um número maior que o inteiro.</p>
+            <p>Ex: 5/3</p>
+            <br>
+            <p><b>--Função aparente--</b></p>
+            <p>São frações em que o numerador é múltiplo ao denominador, ou seja, representa um número inteiro escrito em forma de fração.</p>
+            <p>Ex: 6/3 = 2</p>
+            <br>
+            <p><b>--Fração mista--</b></p>
+            <p>É constituída por uma parte inteira e uma fracionária representada por números mistos.</p>
+            <p>Ex: 1 2/6. (um inteiro e dois sextos)</p>
+            <br>
+            <p><i>Obs: há ainda mais tipos, como: equivalente, irredutível, unitária, egípcia, decimal, composta, contínua, algébrica.</i></p>
+            <br>
+            <h2>Como resolver?</h2>
+            <h2>Adição:</h2>
+            <p>Para somar frações é necessário identificar se os denominadores são iguais ou diferentes.</p>
+            <p>Se forem iguais, basta repetir o denominador e somar os numeradores.</p>
+            <p>Se forem diferentes, antes de somar devemos transformar as frações em frações equivalentes de mesmo denominador.</p>
+            <p>Neste caso, calculamos o Mínimo Múltiplo Comum (MMC) entre os denominadores das frações que queremos somar, esse valor passa a ser o novo denominador das frações.</p>
+            <p>Além disso, devemos dividir o MMC encontrado pelo denominador e o resultado multiplicamos pelo numerador de cada fração. Esse valor passa a ser o novo numerador.</p>
+            <h3>Exemplos:</h3>
+            <img src="fracao/exemplo fracao adicao.png" alt="Exemplos de frações deveriam aparecer aqui :/">
+            <br><br><br>
+            <h2>Subtração:</h2>
+            <p>Para subtrair frações temos que ter o mesmo cuidado que temos na soma, ou seja, verificar se os denominadores são iguais.</p>
+            <p>Se forem, repetimos o denominador e subtraímos os numeradores.</p>
+            <p>Se forem diferentes, fazemos os mesmos procedimentos da soma, para então subtrair (ao invés de somar)</p>
+            <h3>Exemplos:</h3>
+            <img src="fracao/exemplo fracao subtracao.png" alt="Exemplos de frações deveriam aparecer aqui :/">
+            <br><br><br>
+            <h2>Multiplicação:</h2>
+            <p>Para multiplicar frações, basta multiplicar os numeradores entre si e os denominadores entre si.</p>
+            <p><i>bem fácil!</i></p>
+            <h3>Exemplos:</h3>
+            <img src="fracao/exemplo fracao multiplicacao.png" alt="Exemplos de frações deveriam aparecer aqui :/">
+            <br><br><br>
+            <h2>Divisão:</h2>
+            <p>Na divisão entre duas frações, multiplica-se a primeira fração pelo inverso da segunda.</p>
+            <p>Ou seja, inverte-se o numerador e o denominador da segunda fração.</p>
+            <h3>Exemplos:</h3>
+            <img src="fracao/exemplo fracao divisao.png" alt="Exemplos de frações deveriam aparecer aqui :/">
+            <br><br><br><br>
+            <h2><i>--Exercícios para praticar!--</i></h2>
+            <p>Dificuldade <span style="color: green;">fácil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 1</span>: 1/5 + 2/5</p>
+            <input placeholder="x/x" id="Q16" type="text" style="width: 50px;"><button id="B16">Responder</button>
+            <p id="R16"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 2</span>: 7/8 - 3/8</p>
+            <input placeholder="x/x" id="Q17" type="text" style="width: 50px;"><button id="B17">Responder</button>
+            <p id="R17"></p>
+            <br>
+            <p>Dificuldade <span style="color: orange;">média</span></p>
+            <p><span style="text-decoration: underline;">Exercício 3</span>: 1/2 + 1/3</p>
+            <input placeholder="x/x" id="Q18" type="text" style="width: 50px;"><button id="B18">Responder</button>
+            <p id="R18"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 4</span>: 3/4 - 1/6</p>
+            <input placeholder="x/x" id="Q19" type="text" style="width: 50px;"><button id="B19">Responder</button>
+            <p id="R19"></p>
+            <br>
+            <p>Dificuldade <span style="color: red;">difícil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 5</span>: 2/3 + 3/4 - 1/6</p>
+            <input placeholder="x/x" id="Q20" type="text" style="width: 50px;"><button id="B20">Responder</button>
+            <p id="R20"></p>
+            <br>
+        </div>
+        <hr id="porcentagem">
+        <div style="background-color: white; border-radius: 20px;">
+            <br>
+            <a href="#listaConteudos">Voltar a lista de conteúdos</a>
+            <h3 style="font-size: 30px;">Porcentagem</h3>
+            <br>
+            <p>Uma porcentagem representa a razão cujo denominador é igual a 100 e indica uma comparação de uma parte com o todo.</p>
+            <p>O símbolo % é usado para designar a porcentagem.</p>
+            <p>Um valor em porcentagem pode ainda ser expresso na forma de fração centesimal <i>(denominador igual a 100)</i> ou como um número decimal.</p>
+            <h3>Exemplo:</h3>
+            <p><b>30% = 30/100 = 0,30</b></p>
+            <br>
+            <h2>Como resolver?</h2>
+            <p>É possível usar vários métodos para resolver uma porcentagem mas irei mostrar apenas 3 métodos distintos:</p>
+            <p>1.<b>Regra de três</b></p>
+            <p>2.<b>transformar a porcentagem em fração com denominador igual a 100</b></p>
+            <p>3.<b>transformar a porcentagem em número decimal</b></p>
+            <br>
+            <h2>Regra de três:</h2>
+            <p>Exemplo: calcular 30% de 90</p>
+            <br>
+            <p>Para usar a regra de três vamos considerar que 90 corresponde ao todo, ou seja, 100%.</p>
+            <p>O valor que queremos encontrar chamaremos x.</p>
+            <p>A regra de três será expressa como:</p>
+            <img src="porcentagem/porcentagem regra de 3.webp" alt="90 = 100% e x = 30%. Só multiplicar cruzado! (Te mostrei lá em fração, pô)">
+            <p>100.x = 90.30</p>
+            <p>100x = 2700</p>
+            <p>x = 2700/100 → (corta os 0) → <b>27</b></p>
+            <br><br>
+            <h2>Transformar em fração:</h2>
+            <p>Iremos usar o mesmo exemplo!</p>
+            <br>
+            <p>Para resolver usando frações, primeiro temos que transformar a porcentagem em uma fração com denominador igual a 100:</p>
+            <p>30% → 30/100 → 3/10</p>
+            <p>3/10 . 90 → <b>27</b></p>
+            <br><br>
+            <h2>Transformar em número decimal:</h2>
+            <p style="color: white;">porcentagem é só isso?</p>
+            <p>30% = 0,3</p>
+            <p>0,3 . 90 = <b>27</b></p>
+            <br>
+            <p>Deu para perceber que nos 3 métodos o resultado foi 27.</p>
+            <p>Ou seja, 30% de 90 é <b>27!</b></p>
+            <br><br>
+            <h2><i>--Exercícios para praticar!--</i></h2>
+            <p>Dificuldade <span style="color: green;">fácil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 1</span>: 10% de 80</p>
+            <input placeholder="x" id="Q21" type="text" style="width: 50px;"><button id="B21">Responder</button>
+            <p id="R21"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 2</span>: 20% de 150</p>
+            <input placeholder="x" id="Q22" type="text" style="width: 50px;"><button id="B22">Responder</button>
+            <p id="R22"></p>
+            <br>
+            <p>Dificuldade <span style="color: orange;">média</span></p>
+            <p><span style="text-decoration: underline;">Exercício 3</span>: 15% de 240</p>
+            <input placeholder="x" id="Q23" type="text" style="width: 50px;"><button id="B23">Responder</button>
+            <p id="R23"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 4</span>: 8% de 125</p>
+            <input placeholder="x" id="Q24" type="text" style="width: 50px;"><button id="B24">Responder</button>
+            <p id="R24"></p>
+            <br>
+            <p>Dificuldade <span style="color: red;">difícil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 5</span>: 45 é quantos % de 150?</p>
+            <input placeholder="x%" id="Q25" type="text" style="width: 50px;"><button id="B25">Responder</button>
+            <p id="R25"></p>
+            <br>
+        </div>
+        <hr id="probabilidade">
+        <div style="background-color: white; border-radius: 20px;">
+            <br>
+            <a href="#listaConteudos">Voltar a lista de conteúdos</a>
+            <h3 style="font-size: 30px;">Probabilidade</h3>
+            <br>
+            <p>A probabilidade é uma medida da chance de algo acontecer.</p>
+            <p>A probabilidade associa a ocorrência de um resultado a um valor que varia de 0 a 1 e, quanto mais próximo de 1, maior é a certeza da sua ocorrência.</p>
+            <p>O cálculo da probabilidade é uma divisão entre a quantidade de casos favoráveis à ocorrência do evento e o total de casos possíveis.</p>
+            <br>
+            <h2>Fórmula da Probabilidade:</h2>
+            <img src="probabilidade/formula probabilidade.png" alt="P(A) = n(A) - número de casos favoráveis / n(Ω) - números de casos possíveis">
+            <p>n(A) = Também chamado de "Evento"</p>
+            <p>n(Ω) = Também chamado de "Espaço amostral"</p>
+            <br><br>
+            <p>Sendo assim, podemos encontrar a probabilidade de ocorrer um determinado resultado através da divisão entre o número de eventos favoráveis e o número total de resultados possíveis.</p>
+            <br>
+            <h3>Exemplo:</h3>
+            <p>Se lançarmos um dado perfeito, qual a probabilidade de sair um número menor que 3?</p>
+            <br>
+            <p>Para isso, devemos considerar que temos 6 casos possíveis (1, 2, 3, 4, 5, 6)</p>
+            <p>Para que o evento "sair um número menor que 3" aconteça, há apenas duas possibilidades, 1 e 2</p>
+            <p>Assim, temos: P(A) = 2/6</p>
+            <p>Que pode ser simplificada para: P(A) = 1/3 ≅ 0,33</p>
+            <p>Que colocada em porcentagem fica: <b>33%</b></p>
+            <br><br>
+            <h2><i>--Exercícios para praticar!--</i></h2>
+            <p>Dificuldade <span style="color: green;">fácil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 1</span>: Ao lançar uma moeda, qual a chance de cair cara?</p>
+            <input placeholder="x/x" id="Q26" type="text" style="width: 50px;"><button id="B26">Responder</button>
+            <p id="R26"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 2</span>: Ao lançar um dado de 6 faces, qual a chance de sair 4?</p>
+            <input placeholder="x/x" id="Q27" type="text" style="width: 50px;"><button id="B27">Responder</button>
+            <p id="R27"></p>
+            <br>
+            <p>Dificuldade <span style="color: orange;">média</span></p>
+            <p><span style="text-decoration: underline;">Exercício 3</span>: Lançando duas moedas, qual a sair de sair duas caras?</p>
+            <input placeholder="x/x" id="Q28" type="text" style="width: 50px;"><button id="B28">Responder</button>
+            <p id="R28"></p>
+            <br>
+            <p><span style="text-decoration: underline;">Exercício 4</span>:</p>
+            <p>Uma urna com 5 bolas vermelhas, 3 verdes e 2 azuis. Qual a chance de tirar uma verde?</p>
+            <input placeholder="x/x" id="Q29" type="text" style="width: 50px;"><button id="B29">Responder</button>
+            <p id="R29"></p>
+            <br>
+            <p>Dificuldade <span style="color: red;">difícil</span></p>
+            <p><span style="text-decoration: underline;">Exercício 5</span>:</p>
+            <p>Em um baralho de 52 cartas, Qual a chance de tirar um rei ou uma carta de espadas?</p>
+            <input placeholder="x/x" id="Q30" type="text" style="width: 50px;"><button id="B30">Responder</button>
+            <p id="R30"></p>
+            <br>
+        </div>
+        <p style="color: #ededed; font-size: 10px;">fim.</p>
+        <br>
+    </div>
+    <br><br>
+</body>
+<script>
+    //MERDA CHATA --------------------------------------------
+    const Q1 = document.getElementById("Q1"); const B1 = document.getElementById("B1"); const R1 = document.getElementById("R1");
+    const Q2 = document.getElementById("Q2"); const B2 = document.getElementById("B2"); const R2 = document.getElementById("R2");
+    const Q3 = document.getElementById("Q3"); const B3 = document.getElementById("B3"); const R3 = document.getElementById("R3");
+    const Q4 = document.getElementById("Q4"); const B4 = document.getElementById("B4"); const R4 = document.getElementById("R4");
+    const Q5 = document.getElementById("Q5"); const B5 = document.getElementById("B5"); const R5 = document.getElementById("R5");
+    
+    //--------------------------------------------------------
+    const Q6 = document.getElementById("Q6"); const Q6_2 = document.getElementById("Q6.2"); const B6 = document.getElementById("B6"); const R6 = document.getElementById("R6");
+    const Q7 = document.getElementById("Q7"); const B7 = document.getElementById("B7"); const R7 = document.getElementById("R7");
+    const Q8 = document.getElementById("Q8"); const Q8_2 = document.getElementById("Q8.2"); const B8 = document.getElementById("B8"); const R8 = document.getElementById("R8");
+    const Q9 = document.getElementById("Q9"); const Q9_2 = document.getElementById("Q9.2"); const B9 = document.getElementById("B9"); const R9 = document.getElementById("R9");
+    const Q10 = document.getElementById("Q10"); const B10 = document.getElementById("B10"); const R10 = document.getElementById("R10");
+
+    //--------------------------------------------------------
+    const Q11 = document.getElementById("Q11"); const B11 = document.getElementById("B11"); const R11 = document.getElementById("R11");
+    const Q12 = document.getElementById("Q12"); const B12 = document.getElementById("B12"); const R12 = document.getElementById("R12");
+    const Q13 = document.getElementById("Q13"); const B13 = document.getElementById("B13"); const R13 = document.getElementById("R13");
+    const Q14 = document.getElementById("Q14"); const B14 = document.getElementById("B14"); const R14 = document.getElementById("R14");
+    const Q15 = document.getElementById("Q15"); const B15 = document.getElementById("B15"); const R15 = document.getElementById("R15");
+
+    //--------------------------------------------------------
+    const Q16 = document.getElementById("Q16"); const B16 = document.getElementById("B16"); const R16 = document.getElementById("R16");
+    const Q17 = document.getElementById("Q17"); const B17 = document.getElementById("B17"); const R17 = document.getElementById("R17");
+    const Q18 = document.getElementById("Q18"); const B18 = document.getElementById("B18"); const R18 = document.getElementById("R18");
+    const Q19 = document.getElementById("Q19"); const B19 = document.getElementById("B19"); const R19 = document.getElementById("R19");
+    const Q20 = document.getElementById("Q20"); const B20 = document.getElementById("B20"); const R20 = document.getElementById("R20");
+
+    //--------------------------------------------------------
+    const Q21 = document.getElementById("Q21"); const B21 = document.getElementById("B21"); const R21 = document.getElementById("R21");
+    const Q22 = document.getElementById("Q22"); const B22 = document.getElementById("B22"); const R22 = document.getElementById("R22");
+    const Q23 = document.getElementById("Q23"); const B23 = document.getElementById("B23"); const R23 = document.getElementById("R23");
+    const Q24 = document.getElementById("Q24"); const B24 = document.getElementById("B24"); const R24 = document.getElementById("R24");
+    const Q25 = document.getElementById("Q25"); const B25 = document.getElementById("B25"); const R25 = document.getElementById("R25");
+
+    //--------------------------------------------------------
+    const Q26 = document.getElementById("Q26"); const B26 = document.getElementById("B26"); const R26 = document.getElementById("R26");
+    const Q27 = document.getElementById("Q27"); const B27 = document.getElementById("B27"); const R27 = document.getElementById("R27");
+    const Q28 = document.getElementById("Q28"); const B28 = document.getElementById("B28"); const R28 = document.getElementById("R28");
+    const Q29 = document.getElementById("Q29"); const B29 = document.getElementById("B29"); const R29 = document.getElementById("R29");
+    const Q30 = document.getElementById("Q30"); const B30 = document.getElementById("B30"); const R30 = document.getElementById("R30");
+
+    //--------------------------------------------------------
+    const acerto = document.getElementById("acerto");
+    const erro = document.getElementById("erro");
+    acerto.volume = 0.5;
+
+    //MAIS MERDA CHATA----------------------------------------
+    B1.onclick=function(){
+        if(Q1.value=="5"){
+            R1.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R1.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+    
+    B2.onclick=function(){
+        if(Q2.value=="3"){
+            R2.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R2.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B3.onclick=function(){
+        if(Q3.value=="9"){
+            R3.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R3.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B4.onclick=function(){
+        if(Q4.value=="4"){
+            R4.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R4.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B5.onclick=function(){
+        if(Q5.value=="11"){
+            R5.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R5.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+    //--------------------------------------------------------
+    B6.onclick=function(){
+        if(Q6.value=="2" && Q6_2.value=="3"){
+            R6.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if(Q6.value=="3" && Q6_2.value=="2"){
+            R6.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R6.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B7.onclick=function(){
+        if(Q7.value=="3" || Q7.value=="-3"){
+            R7.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R7.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B8.onclick=function(){
+        if(Q8.value=="2" && Q8_2.value=="-6"){
+            R8.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if(Q8.value=="-6" && Q8_2.value=="2"){
+            R8.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R8.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B9.onclick=function(){
+        if(Q9.value=="1" && Q9_2.value=="3"){
+            R9.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if(Q9.value=="3" && Q9_2.value=="1"){
+            R9.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R9.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B10.onclick=function(){
+        if(Q10.value=="3"){
+            R10.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R10.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+    //--------------------------------------------------------
+    B11.onclick=function(){
+        if(Q11.value == "2,4"){
+            R11.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if (Q11.value == "-2,0"){
+            R11.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R11.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B12.onclick=function(){
+        if(Q12.value == "3,6"){
+            R12.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if (Q12.value == "-1,-2"){
+            R12.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R12.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B13.onclick=function(){
+        if(Q13.value == "3,6"){
+            R13.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if (Q13.value == "-1,2"){
+            R13.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R13.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B14.onclick=function(){
+        if(Q14.value == "3,5"){
+            R14.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if (Q14.value == "-2,-5"){
+            R14.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R14.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B15.onclick=function(){
+        if(Q15.value == "2,3"){
+            R15.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if (Q15.value == "4,7"){
+            R15.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R15.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+    //--------------------------------------------------------
+    B16.onclick=function(){
+        if(Q16.value=="3/5"){
+            R16.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R16.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B17.onclick=function(){
+        if(Q17.value=="4/8"){
+            R17.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if(Q17.value=="1/2"){
+            R17.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R17.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B18.onclick=function(){
+        if(Q18.value=="5/6"){
+            R18.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R18.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B19.onclick=function(){
+        if(Q19.value=="7/12"){
+            R19.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R19.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B20.onclick=function(){
+        if(Q20.value=="5/4"){
+            R20.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R20.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+    //--------------------------------------------------------
+    B21.onclick=function(){
+        if(Q21.value=="8"){
+            R21.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R21.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B22.onclick=function(){
+        if(Q22.value=="30"){
+            R22.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R22.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B23.onclick=function(){
+        if(Q23.value=="36"){
+            R23.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R23.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B24.onclick=function(){
+        if(Q24.value=="10"){
+            R24.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R24.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B25.onclick=function(){
+        if(Q25.value=="30%"){
+            R25.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R25.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+    //--------------------------------------------------------
+    B26.onclick=function(){
+        if(Q26.value=="1/2"){
+            R26.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R26.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B27.onclick=function(){
+        if(Q27.value=="1/6"){
+            R27.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R27.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B28.onclick=function(){
+        if(Q28.value=="1/4"){
+            R28.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R28.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B29.onclick=function(){
+        if(Q29.value=="3/10"){
+            R29.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R29.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+
+    B30.onclick=function(){
+        if(Q30.value=="16/52"){
+            R30.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else if(Q30.value=="4/13"){
+            R30.textContent="😎 Correto!"
+            acerto.play()
+        }
+        else{
+            R30.textContent="😢 Errado!"
+            erro.play()
+        }
+    }
+    //--------------------------------------------------------
+    //                 >:(
+</script>
+</html>
