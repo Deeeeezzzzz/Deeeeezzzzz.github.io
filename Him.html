@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8; width=device-width">
+  <title>Him</title>
+  <style>
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  </style>
+</head>
+<body style="background-color: black;">
+  <audio id="musc" src="man.m4a" loop></audio>
+  <div>
+    <button id="but" style="background-color: black; color: white;">.</button>
+    <img onclick="ele()" id="Him" src="Man_overworld_tree.gif" style="display: none;">
+  </div>
+</body>
+<script>
+const him = document.getElementById("Him");
+const musc = document.getElementById("musc");
+const but = document.getElementById("but");
+let dialogo = 1;
+
+but.onclick=function(){
+  alert("He is behind the tree");
+  but.style.display = "none";
+  him.style.display = "block";
+  musc.play();
+}
+
+function ele(){
+  if(dialogo==1){
+    alert("Well, there is a man here");
+    dialogo=2;
+  }
+  else if(dialogo==2){
+    alert("He offers you something");
+    dialogo=3;
+  }
+  else if(dialogo==3){
+    alert("What do you think?");
+    dialogo=4;
+  }
+  else if(dialogo==4){
+    alert("You obtained the egg");
+    dialogo=5;
+  }
+  else{
+    alert("Well, there is not a man here");
+    window.close();
+  }
+}
+</script>
+</html>
